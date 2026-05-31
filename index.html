@@ -1,0 +1,927 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="O.N Site - Crafting Digital Excellence. Elite app and website development studio.">
+    <meta name="theme-color" content="#faf8f5">
+    <title>O.N Site | Crafting Digital Excellence</title>
+
+    <!-- Google Fonts: Inter + Vazirmatn -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Vazirmatn:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+    <!-- Main Stylesheet -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Inline Critical CSS for initial render stability -->
+    <style>
+        :root {
+            --bg-primary: #faf8f5;
+            --bg-secondary: #f0ede8;
+            --text-primary: #1c1c1e;
+            --text-secondary: #3a3a3c;
+            --text-tertiary: #6e6e73;
+            --accent: #5b8c85;
+            --accent-soft: #a3c4bc;
+            --accent-warm: #c4a882;
+            --border-subtle: #e0dcd5;
+            --glass-bg: rgba(250, 248, 245, 0.82);
+            --glass-border: rgba(200, 195, 188, 0.5);
+            --shadow-sm: 0 1px 3px rgba(0,0,0,0.06);
+            --shadow-md: 0 4px 16px rgba(0,0,0,0.08);
+            --shadow-lg: 0 12px 40px rgba(0,0,0,0.10);
+            --shadow-xl: 0 24px 64px rgba(0,0,0,0.12);
+            --card-bg: #ffffff;
+            --card-border: #e8e4dc;
+            --input-bg: #ffffff;
+            --input-border: #d5d0c8;
+            --overlay-bg: rgba(250, 248, 245, 0.96);
+            --hero-gradient-1: rgba(91,140,133,0.12);
+            --hero-gradient-2: rgba(196,168,130,0.10);
+            --nav-blur: blur(18px);
+            --radius-sm: 8px;
+            --radius-md: 14px;
+            --radius-lg: 22px;
+            --radius-xl: 32px;
+            --transition-smooth: 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+            --transition-bounce: 0.45s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+        [data-theme="dark"] {
+            --bg-primary: #0b0e14;
+            --bg-secondary: #13171f;
+            --text-primary: #e8e6e3;
+            --text-secondary: #b8b6b2;
+            --text-tertiary: #8a8885;
+            --accent: #7ec8bc;
+            --accent-soft: #5a9e94;
+            --accent-warm: #d4b896;
+            --border-subtle: #252830;
+            --glass-bg: rgba(11,14,20,0.85);
+            --glass-border: rgba(60,63,70,0.5);
+            --shadow-sm: 0 1px 3px rgba(0,0,0,0.30);
+            --shadow-md: 0 4px 16px rgba(0,0,0,0.40);
+            --shadow-lg: 0 12px 40px rgba(0,0,0,0.50);
+            --shadow-xl: 0 24px 64px rgba(0,0,0,0.60);
+            --card-bg: #181c24;
+            --card-border: #2a2d35;
+            --input-bg: #1a1e26;
+            --input-border: #353840;
+            --overlay-bg: rgba(11,14,20,0.97);
+            --hero-gradient-1: rgba(126,200,188,0.10);
+            --hero-gradient-2: rgba(212,184,150,0.08);
+        }
+        *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+        html{scroll-behavior:smooth;font-size:16px}
+        body{
+            font-family:'Inter','Vazirmatn',sans-serif;
+            background-color:var(--bg-primary);
+            color:var(--text-primary);
+            line-height:1.7;
+            overflow-x:hidden;
+            transition:background-color 0.4s ease,color 0.3s ease;
+            -webkit-font-smoothing:antialiased;
+            -moz-osx-font-smoothing:grayscale;
+        }
+        [lang="fa"] body,[lang="fa"]{
+            font-family:'Vazirmatn','Inter',sans-serif;
+        }
+        .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+        img{max-width:100%;height:auto;display:block}
+        a{text-decoration:none;color:inherit}
+        ul{list-style:none}
+        button{cursor:pointer;border:none;background:none;font-family:inherit;color:inherit}
+    </style>
+</head>
+<body>
+
+    <!-- ==================== HEADER / NAVIGATION ==================== -->
+    <header class="site-header" id="siteHeader" role="banner">
+        <div class="header-inner container">
+            <!-- Logo -->
+            <a href="#hero" class="logo-link" aria-label="O.N Site Home">
+                <img
+                    src="logo.png"
+                    alt="O.N Site Logo"
+                    class="logo-img"
+                    width="48"
+                    height="48"
+                    loading="eager"
+                    onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"
+                >
+                <!-- Fallback SVG Logo -->
+                <div class="logo-fallback" style="display:none;" aria-hidden="true">
+                    <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <rect x="4" y="4" width="40" height="40" rx="12" fill="var(--accent)" opacity="0.15"/>
+                        <rect x="8" y="8" width="32" height="32" rx="9" stroke="var(--accent)" stroke-width="1.8" fill="none"/>
+                        <circle cx="19" cy="19" r="3.5" fill="var(--accent)" opacity="0.8"/>
+                        <circle cx="29" cy="29" r="2.5" fill="var(--accent-warm)" opacity="0.9"/>
+                        <line x1="21.5" y1="21.5" x2="27" y2="27" stroke="var(--accent)" stroke-width="1.5" stroke-linecap="round"/>
+                    </svg>
+                </div>
+                <span class="logo-text">O.N Site</span>
+            </a>
+
+            <!-- Desktop Navigation -->
+            <nav class="main-nav" id="mainNav" aria-label="Main navigation">
+                <ul class="nav-list" role="menubar">
+                    <li role="none"><a href="#hero" class="nav-link active" role="menuitem" data-i18n="nav_home">Home</a></li>
+                    <li role="none"><a href="#about" class="nav-link" role="menuitem" data-i18n="nav_about">About</a></li>
+                    <li role="none"><a href="#services" class="nav-link" role="menuitem" data-i18n="nav_services">Services</a></li>
+                    <li role="none"><a href="#portfolio" class="nav-link" role="menuitem" data-i18n="nav_portfolio">Portfolio</a></li>
+                    <li role="none"><a href="#testimonials" class="nav-link" role="menuitem" data-i18n="nav_testimonials">Testimonials</a></li>
+                    <li role="none"><a href="#contact" class="nav-link" role="menuitem" data-i18n="nav_contact">Contact</a></li>
+                </ul>
+            </nav>
+
+            <!-- Header Actions -->
+            <div class="header-actions">
+                <!-- Language Toggle -->
+                <button
+                    class="icon-btn lang-toggle"
+                    id="langToggle"
+                    aria-label="Switch language to Persian"
+                    title="Switch language"
+                    data-tooltip-en="Switch to Persian"
+                    data-tooltip-fa="تغییر به انگلیسی"
+                >
+                    <svg class="icon-globe" width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.6" fill="none"/>
+                        <ellipse cx="12" cy="12" rx="5" ry="10" stroke="currentColor" stroke-width="1.2" fill="none"/>
+                        <line x1="2" y1="12" x2="22" y2="12" stroke="currentColor" stroke-width="1.2" opacity="0.5"/>
+                        <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" stroke="currentColor" stroke-width="1.2" fill="none" opacity="0.4"/>
+                    </svg>
+                </button>
+
+                <!-- Theme Toggle -->
+                <button
+                    class="icon-btn theme-toggle"
+                    id="themeToggle"
+                    aria-label="Switch to dark theme"
+                    title="Toggle theme"
+                >
+                    <!-- Sun Icon -->
+                    <svg class="icon-sun" width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="12" cy="12" r="5" stroke="currentColor" stroke-width="1.6" fill="none"/>
+                        <g stroke="currentColor" stroke-width="1.6" stroke-linecap="round">
+                            <line x1="12" y1="1" x2="12" y2="3.5"/>
+                            <line x1="12" y1="20.5" x2="12" y2="23"/>
+                            <line x1="1" y1="12" x2="3.5" y2="12"/>
+                            <line x1="20.5" y1="12" x2="23" y2="12"/>
+                            <line x1="4.22" y1="4.22" x2="5.99" y2="5.99"/>
+                            <line x1="18.01" y1="18.01" x2="19.78" y2="19.78"/>
+                            <line x1="4.22" y1="19.78" x2="5.99" y2="18.01"/>
+                            <line x1="18.01" y1="5.99" x2="19.78" y2="4.22"/>
+                        </g>
+                    </svg>
+                    <!-- Moon Icon (hidden by default in light mode) -->
+                    <svg class="icon-moon" width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="display:none;">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" stroke="currentColor" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </button>
+
+                <!-- Mobile Menu Button -->
+                <button
+                    class="icon-btn hamburger"
+                    id="hamburgerBtn"
+                    aria-label="Open menu"
+                    aria-expanded="false"
+                >
+                    <svg class="hamburger-svg" width="26" height="26" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <line class="line-top" x1="4" y1="7" x2="22" y2="7" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                        <line class="line-mid" x1="4" y1="13" x2="22" y2="13" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                        <line class="line-bot" x1="4" y1="19" x2="22" y2="19" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                    </svg>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Overlay Menu -->
+        <div class="mobile-overlay" id="mobileOverlay" aria-hidden="true">
+            <nav class="mobile-nav" aria-label="Mobile navigation">
+                <ul class="mobile-nav-list">
+                    <li><a href="#hero" class="mobile-nav-link" data-i18n="nav_home">Home</a></li>
+                    <li><a href="#about" class="mobile-nav-link" data-i18n="nav_about">About</a></li>
+                    <li><a href="#services" class="mobile-nav-link" data-i18n="nav_services">Services</a></li>
+                    <li><a href="#portfolio" class="mobile-nav-link" data-i18n="nav_portfolio">Portfolio</a></li>
+                    <li><a href="#testimonials" class="mobile-nav-link" data-i18n="nav_testimonials">Testimonials</a></li>
+                    <li><a href="#contact" class="mobile-nav-link" data-i18n="nav_contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- ==================== MAIN CONTENT ==================== -->
+    <main id="mainContent">
+
+        <!-- ===== HERO SECTION ===== -->
+        <section class="hero-section" id="hero" aria-labelledby="heroHeading">
+            <!-- Abstract Geometric SVG Background -->
+            <div class="hero-bg-svg" aria-hidden="true">
+                <svg viewBox="0 0 1200 800" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+                    <defs>
+                        <radialGradient id="heroGlow1" cx="20%" cy="30%" r="50%">
+                            <stop offset="0%" stop-color="var(--accent)" stop-opacity="0.18"/>
+                            <stop offset="100%" stop-color="var(--accent)" stop-opacity="0"/>
+                        </radialGradient>
+                        <radialGradient id="heroGlow2" cx="80%" cy="70%" r="45%">
+                            <stop offset="0%" stop-color="var(--accent-warm)" stop-opacity="0.14"/>
+                            <stop offset="100%" stop-color="var(--accent-warm)" stop-opacity="0"/>
+                        </radialGradient>
+                    </defs>
+                    <rect width="1200" height="800" fill="url(#heroGlow1)"/>
+                    <rect width="1200" height="800" fill="url(#heroGlow2)"/>
+                    <circle cx="180" cy="140" r="60" fill="none" stroke="var(--accent)" stroke-width="0.8" opacity="0.25"/>
+                    <circle cx="1050" cy="620" r="90" fill="none" stroke="var(--accent-warm)" stroke-width="0.7" opacity="0.2"/>
+                    <circle cx="600" cy="380" r="180" fill="none" stroke="var(--accent-soft)" stroke-width="0.5" opacity="0.15"/>
+                    <rect x="250" y="500" width="80" height="80" rx="16" fill="none" stroke="var(--accent)" stroke-width="0.9" opacity="0.2" transform="rotate(15 290 540)"/>
+                    <rect x="850" y="120" width="55" height="55" rx="10" fill="none" stroke="var(--accent-warm)" stroke-width="0.8" opacity="0.22" transform="rotate(-10 877 147)"/>
+                    <line x1="100" y1="300" x2="300" y2="280" stroke="var(--accent-soft)" stroke-width="0.6" opacity="0.3"/>
+                    <line x1="900" y1="500" x2="1100" y2="480" stroke="var(--accent-soft)" stroke-width="0.6" opacity="0.25"/>
+                    <polygon points="550,100 580,160 520,160" fill="none" stroke="var(--accent)" stroke-width="0.7" opacity="0.18"/>
+                    <polygon points="700,650 740,600 660,600" fill="none" stroke="var(--accent-warm)" stroke-width="0.7" opacity="0.16"/>
+                </svg>
+            </div>
+
+            <div class="hero-content container">
+                <div class="hero-text-wrap reveal-el">
+                    <h1 class="hero-heading" id="heroHeading" data-i18n="hero_title">
+                        We Build Digital<br><span class="hero-highlight">Masterpieces</span>
+                    </h1>
+                    <p class="hero-subheading" data-i18n="hero_subtitle">
+                        O.N Site crafts elite applications and websites with Swiss precision and Persian elegance. Your vision, engineered to perfection.
+                    </p>
+                    <div class="hero-cta-group">
+                        <a href="#portfolio" class="btn btn-primary" data-i18n="hero_cta_work">
+                            See Our Work
+                            <svg class="btn-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </a>
+                        <a href="#contact" class="btn btn-outline" data-i18n="hero_cta_contact">
+                            Get in Touch
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Scroll Indicator -->
+            <div class="scroll-indicator" aria-hidden="true">
+                <svg width="28" height="42" viewBox="0 0 28 42" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect x="1" y="1" width="26" height="40" rx="13" stroke="var(--text-tertiary)" stroke-width="1.5" fill="none"/>
+                    <circle class="scroll-dot" cx="14" cy="11" r="3.5" fill="var(--accent)"/>
+                </svg>
+            </div>
+        </section>
+
+        <!-- ===== ABOUT SECTION ===== -->
+        <section class="about-section section-padding" id="about" aria-labelledby="aboutHeading">
+            <div class="container">
+                <div class="section-header reveal-el">
+                    <span class="section-tag" data-i18n="about_tag">Who We Are</span>
+                    <h2 class="section-title" id="aboutHeading" data-i18n="about_title">About O.N Site</h2>
+                </div>
+                <div class="about-grid">
+                    <div class="about-visual reveal-el">
+                        <!-- Decorative SVG Portrait Frame -->
+                        <div class="about-frame">
+                            <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" class="about-frame-svg">
+                                <defs>
+                                    <clipPath id="hexClip">
+                                        <polygon points="100,10 175,55 175,145 100,190 25,145 25,55"/>
+                                    </clipPath>
+                                </defs>
+                                <polygon points="100,10 175,55 175,145 100,190 25,145 25,55" fill="var(--accent)" opacity="0.08" stroke="var(--accent)" stroke-width="1.5"/>
+                                <image href="logo.png" x="25" y="55" width="150" height="90" clip-path="url(#hexClip)" preserveAspectRatio="xMidYMid slice" onerror="this.style.display='none';"/>
+                                <!-- Fallback pattern -->
+                                <polygon points="100,55 140,80 140,130 100,155 60,130 60,80" fill="var(--accent-soft)" opacity="0.25"/>
+                                <circle cx="100" cy="105" r="18" fill="var(--accent)" opacity="0.5"/>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="about-text reveal-el">
+                        <p class="about-desc" data-i18n="about_desc_1">
+                            O.N Site is a boutique digital studio founded on the belief that every pixel matters. We blend cutting-edge technology with timeless design principles to create digital experiences that resonate deeply with users.
+                        </p>
+                        <p class="about-desc" data-i18n="about_desc_2">
+                            With years of expertise in app development, web engineering, and UI/UX design, our team approaches each project as a unique masterpiece. We do not just write code — we sculpt digital excellence.
+                        </p>
+                        <div class="about-stats">
+                            <div class="stat-item">
+                                <span class="stat-number">150+</span>
+                                <span class="stat-label" data-i18n="about_stat_projects">Projects Delivered</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-number">40+</span>
+                                <span class="stat-label" data-i18n="about_stat_clients">Happy Clients</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-number">8+</span>
+                                <span class="stat-label" data-i18n="about_stat_years">Years Experience</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== SERVICES SECTION ===== -->
+        <section class="services-section section-padding" id="services" aria-labelledby="servicesHeading">
+            <div class="container">
+                <div class="section-header reveal-el">
+                    <span class="section-tag" data-i18n="services_tag">What We Do</span>
+                    <h2 class="section-title" id="servicesHeading" data-i18n="services_title">Our Services</h2>
+                </div>
+                <div class="services-grid">
+                    <!-- Service 1: App Development -->
+                    <article class="service-card reveal-el" tabindex="0">
+                        <div class="service-icon-wrap">
+                            <svg class="service-icon" width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <rect x="10" y="4" width="28" height="40" rx="5" stroke="var(--accent)" stroke-width="1.6" fill="none"/>
+                                <rect x="14" y="9" width="20" height="26" rx="2" fill="var(--accent)" opacity="0.08"/>
+                                <circle cx="24" cy="39" r="2.5" fill="var(--accent)" opacity="0.6"/>
+                                <rect x="17" y="14" width="14" height="2" rx="1" fill="var(--accent)" opacity="0.4"/>
+                                <rect x="17" y="19" width="10" height="1.5" rx="0.75" fill="var(--accent-soft)" opacity="0.5"/>
+                                <rect x="17" y="23" width="8" height="1.5" rx="0.75" fill="var(--accent-soft)" opacity="0.35"/>
+                                <circle cx="36" cy="8" r="4" fill="var(--accent-warm)" opacity="0.7"/>
+                                <circle cx="36" cy="8" r="2" fill="var(--bg-primary)"/>
+                            </svg>
+                        </div>
+                        <h3 class="service-title" data-i18n="service_app_title">App Development</h3>
+                        <p class="service-desc" data-i18n="service_app_desc">
+                            Native iOS and Android applications built with precision, performance, and pixel-perfect design at their core.
+                        </p>
+                    </article>
+
+                    <!-- Service 2: Web Development -->
+                    <article class="service-card reveal-el" tabindex="0">
+                        <div class="service-icon-wrap">
+                            <svg class="service-icon" width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <rect x="4" y="8" width="40" height="28" rx="4" stroke="var(--accent)" stroke-width="1.6" fill="none"/>
+                                <rect x="6" y="10" width="36" height="24" rx="2.5" fill="var(--accent)" opacity="0.06"/>
+                                <rect x="6" y="10" width="36" height="6" rx="2.5" fill="var(--accent)" opacity="0.1"/>
+                                <circle cx="11" cy="13" r="1.8" fill="var(--accent-warm)" opacity="0.8"/>
+                                <circle cx="17" cy="13" r="1.8" fill="var(--accent-soft)" opacity="0.7"/>
+                                <circle cx="23" cy="13" r="1.8" fill="var(--accent)" opacity="0.5"/>
+                                <rect x="9" y="20" width="14" height="2" rx="1" fill="var(--text-tertiary)" opacity="0.3"/>
+                                <rect x="9" y="25" width="20" height="2" rx="1" fill="var(--text-tertiary)" opacity="0.2"/>
+                                <rect x="9" y="30" width="10" height="2" rx="1" fill="var(--text-tertiary)" opacity="0.15"/>
+                                <circle cx="38" cy="30" r="5" fill="var(--accent)" opacity="0.18"/>
+                                <path d="M36 30l1.5 1.5 3-3" stroke="var(--accent)" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </div>
+                        <h3 class="service-title" data-i18n="service_web_title">Website Development</h3>
+                        <p class="service-desc" data-i18n="service_web_desc">
+                            Responsive, lightning-fast websites engineered with clean code and captivating design that converts visitors into clients.
+                        </p>
+                    </article>
+
+                    <!-- Service 3: UI/UX Design -->
+                    <article class="service-card reveal-el" tabindex="0">
+                        <div class="service-icon-wrap">
+                            <svg class="service-icon" width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M8 36l4-16 8 8 6-14 10 22H8z" fill="var(--accent)" opacity="0.1" stroke="var(--accent)" stroke-width="1.5" stroke-linejoin="round"/>
+                                <circle cx="14" cy="18" r="3" fill="var(--accent-warm)" opacity="0.6"/>
+                                <circle cx="20" cy="26" r="2.5" fill="var(--accent)" opacity="0.5"/>
+                                <circle cx="28" cy="12" r="2" fill="var(--accent-soft)" opacity="0.6"/>
+                                <path d="M36 4l2 2-2 2-2-2 2-2z" fill="var(--accent)" opacity="0.7"/>
+                                <line x1="36" y1="8" x2="36" y2="14" stroke="var(--accent)" stroke-width="1.4" stroke-linecap="round"/>
+                            </svg>
+                        </div>
+                        <h3 class="service-title" data-i18n="service_uiux_title">UI/UX Design</h3>
+                        <p class="service-desc" data-i18n="service_uiux_desc">
+                            User-centered design that marries aesthetics with functionality, creating intuitive interfaces that delight at every touchpoint.
+                        </p>
+                    </article>
+
+                    <!-- Service 4: Performance Optimization -->
+                    <article class="service-card reveal-el" tabindex="0">
+                        <div class="service-icon-wrap">
+                            <svg class="service-icon" width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <circle cx="24" cy="24" r="20" stroke="var(--accent)" stroke-width="1.6" fill="none"/>
+                                <circle cx="24" cy="24" r="14" stroke="var(--accent-soft)" stroke-width="1.2" fill="none" opacity="0.5"/>
+                                <polyline points="24,8 28,20 24,26 20,20 24,8" fill="var(--accent-warm)" opacity="0.7" stroke="var(--accent-warm)" stroke-width="1.2" stroke-linejoin="round"/>
+                                <circle cx="24" cy="24" r="3" fill="var(--accent)" opacity="0.7"/>
+                                <line x1="24" y1="27" x2="24" y2="34" stroke="var(--accent)" stroke-width="1.8" stroke-linecap="round"/>
+                            </svg>
+                        </div>
+                        <h3 class="service-title" data-i18n="service_perf_title">Performance Optimization</h3>
+                        <p class="service-desc" data-i18n="service_perf_desc">
+                            Speed is a feature. We optimize every asset, query, and line of code to deliver sub-second load times and buttery-smooth interactions.
+                        </p>
+                    </article>
+
+                    <!-- Service 5: Consultation -->
+                    <article class="service-card reveal-el" tabindex="0">
+                        <div class="service-icon-wrap">
+                            <svg class="service-icon" width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <rect x="6" y="10" width="36" height="28" rx="5" stroke="var(--accent)" stroke-width="1.6" fill="none"/>
+                                <rect x="10" y="14" width="28" height="20" rx="3" fill="var(--accent)" opacity="0.06"/>
+                                <circle cx="24" cy="20" r="6" fill="var(--accent-soft)" opacity="0.35"/>
+                                <path d="M16 30c0-4.4 3.6-8 8-8s8 3.6 8 8" fill="var(--accent)" opacity="0.18" stroke="var(--accent)" stroke-width="1.3" stroke-linecap="round"/>
+                                <circle cx="36" cy="36" r="5" fill="var(--accent-warm)" opacity="0.5"/>
+                                <path d="M34 36l1.5 1.5 3-3" stroke="var(--bg-primary)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </div>
+                        <h3 class="service-title" data-i18n="service_consult_title">Consultation & Strategy</h3>
+                        <p class="service-desc" data-i18n="service_consult_desc">
+                            Strategic guidance to align your digital goals with market realities. We help you navigate the complex landscape of modern technology.
+                        </p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== PORTFOLIO SECTION ===== -->
+        <section class="portfolio-section section-padding" id="portfolio" aria-labelledby="portfolioHeading">
+            <div class="container">
+                <div class="section-header reveal-el">
+                    <span class="section-tag" data-i18n="portfolio_tag">Our Work</span>
+                    <h2 class="section-title" id="portfolioHeading" data-i18n="portfolio_title">Selected Projects</h2>
+                </div>
+
+                <!-- Filter Buttons -->
+                <div class="portfolio-filters reveal-el">
+                    <button class="filter-btn active" data-filter="all" data-i18n="filter_all">All</button>
+                    <button class="filter-btn" data-filter="app" data-i18n="filter_app">App</button>
+                    <button class="filter-btn" data-filter="web" data-i18n="filter_web">Web</button>
+                    <button class="filter-btn" data-filter="design" data-i18n="filter_design">Design</button>
+                </div>
+
+                <!-- Portfolio Grid -->
+                <div class="portfolio-grid" id="portfolioGrid">
+                    <!-- Project 1 -->
+                    <div class="portfolio-card reveal-el" data-category="app">
+                        <div class="portfolio-card-inner">
+                            <div class="portfolio-thumb">
+                                <svg viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+                                    <rect width="400" height="300" fill="var(--accent)" opacity="0.08"/>
+                                    <rect x="150" y="50" width="100" height="200" rx="12" fill="var(--accent)" opacity="0.15" stroke="var(--accent)" stroke-width="1.5"/>
+                                    <rect x="160" y="70" width="80" height="120" rx="6" fill="var(--accent-soft)" opacity="0.25"/>
+                                    <circle cx="200" cy="220" r="10" fill="var(--accent-warm)" opacity="0.5"/>
+                                </svg>
+                                <div class="portfolio-overlay">
+                                    <span class="portfolio-category" data-i18n="cat_app">App</span>
+                                    <h3 class="portfolio-title">Finova Wallet</h3>
+                                    <p class="portfolio-desc">Digital banking experience</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project 2 -->
+                    <div class="portfolio-card reveal-el" data-category="web">
+                        <div class="portfolio-card-inner">
+                            <div class="portfolio-thumb">
+                                <svg viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+                                    <rect width="400" height="300" fill="var(--accent-warm)" opacity="0.06"/>
+                                    <rect x="60" y="40" width="280" height="190" rx="6" fill="var(--accent-warm)" opacity="0.1" stroke="var(--accent-warm)" stroke-width="1.2"/>
+                                    <rect x="70" y="50" width="260" height="20" rx="3" fill="var(--accent)" opacity="0.2"/>
+                                    <rect x="70" y="85" width="120" height="12" rx="2" fill="var(--text-tertiary)" opacity="0.2"/>
+                                    <rect x="70" y="105" width="180" height="12" rx="2" fill="var(--text-tertiary)" opacity="0.15"/>
+                                    <circle cx="330" cy="40" r="12" fill="var(--accent)" opacity="0.3"/>
+                                </svg>
+                                <div class="portfolio-overlay">
+                                    <span class="portfolio-category" data-i18n="cat_web">Web</span>
+                                    <h3 class="portfolio-title">Artisan Collective</h3>
+                                    <p class="portfolio-desc">E-commerce platform</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project 3 -->
+                    <div class="portfolio-card reveal-el" data-category="design">
+                        <div class="portfolio-card-inner">
+                            <div class="portfolio-thumb">
+                                <svg viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+                                    <rect width="400" height="300" fill="var(--accent-soft)" opacity="0.05"/>
+                                    <circle cx="200" cy="130" r="70" fill="var(--accent)" opacity="0.08" stroke="var(--accent)" stroke-width="1"/>
+                                    <circle cx="180" cy="110" r="25" fill="var(--accent-warm)" opacity="0.3"/>
+                                    <rect x="160" y="170" width="80" height="8" rx="4" fill="var(--accent)" opacity="0.25"/>
+                                    <rect x="150" y="190" width="100" height="6" rx="3" fill="var(--text-tertiary)" opacity="0.2"/>
+                                </svg>
+                                <div class="portfolio-overlay">
+                                    <span class="portfolio-category" data-i18n="cat_design">Design</span>
+                                    <h3 class="portfolio-title">Lumina Brand System</h3>
+                                    <p class="portfolio-desc">Complete visual identity</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project 4 -->
+                    <div class="portfolio-card reveal-el" data-category="app">
+                        <div class="portfolio-card-inner">
+                            <div class="portfolio-thumb">
+                                <svg viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+                                    <rect width="400" height="300" fill="var(--accent-warm)" opacity="0.06"/>
+                                    <rect x="120" y="30" width="160" height="240" rx="16" fill="var(--accent-warm)" opacity="0.1" stroke="var(--accent-warm)" stroke-width="1.3"/>
+                                    <rect x="135" y="55" width="130" height="80" rx="8" fill="var(--accent)" opacity="0.15"/>
+                                    <circle cx="200" cy="170" r="25" fill="var(--accent-soft)" opacity="0.35"/>
+                                    <rect x="150" y="215" width="100" height="8" rx="4" fill="var(--text-tertiary)" opacity="0.2"/>
+                                </svg>
+                                <div class="portfolio-overlay">
+                                    <span class="portfolio-category" data-i18n="cat_app">App</span>
+                                    <h3 class="portfolio-title">FitPulse Pro</h3>
+                                    <p class="portfolio-desc">Fitness tracking app</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project 5 -->
+                    <div class="portfolio-card reveal-el" data-category="web">
+                        <div class="portfolio-card-inner">
+                            <div class="portfolio-thumb">
+                                <svg viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+                                    <rect width="400" height="300" fill="var(--accent)" opacity="0.05"/>
+                                    <rect x="50" y="30" width="300" height="240" rx="8" fill="var(--accent)" opacity="0.07" stroke="var(--accent)" stroke-width="1"/>
+                                    <circle cx="100" cy="80" r="20" fill="var(--accent-warm)" opacity="0.25"/>
+                                    <rect x="140" y="65" width="120" height="12" rx="3" fill="var(--text-tertiary)" opacity="0.2"/>
+                                    <rect x="140" y="88" width="80" height="8" rx="2" fill="var(--text-tertiary)" opacity="0.15"/>
+                                    <rect x="70" y="130" width="260" height="100" rx="4" fill="var(--accent-soft)" opacity="0.12"/>
+                                </svg>
+                                <div class="portfolio-overlay">
+                                    <span class="portfolio-category" data-i18n="cat_web">Web</span>
+                                    <h3 class="portfolio-title">Nexus Dashboard</h3>
+                                    <p class="portfolio-desc">SaaS analytics platform</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project 6 -->
+                    <div class="portfolio-card reveal-el" data-category="design">
+                        <div class="portfolio-card-inner">
+                            <div class="portfolio-thumb">
+                                <svg viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+                                    <rect width="400" height="300" fill="var(--accent-soft)" opacity="0.04"/>
+                                    <polygon points="200,40 280,120 240,220 160,220 120,120" fill="var(--accent)" opacity="0.07" stroke="var(--accent)" stroke-width="1.2"/>
+                                    <circle cx="200" cy="140" r="30" fill="var(--accent-warm)" opacity="0.2"/>
+                                    <rect x="170" y="190" width="60" height="8" rx="4" fill="var(--accent)" opacity="0.3"/>
+                                </svg>
+                                <div class="portfolio-overlay">
+                                    <span class="portfolio-category" data-i18n="cat_design">Design</span>
+                                    <h3 class="portfolio-title">Aether UI Kit</h3>
+                                    <p class="portfolio-desc">Design system library</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Portfolio Lightbox -->
+            <div class="lightbox" id="portfolioLightbox" aria-hidden="true">
+                <div class="lightbox-backdrop"></div>
+                <div class="lightbox-content">
+                    <button class="lightbox-close" aria-label="Close lightbox">
+                        <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <line x1="6" y1="6" x2="22" y2="22" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                            <line x1="22" y1="6" x2="6" y2="22" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                        </svg>
+                    </button>
+                    <div class="lightbox-body" id="lightboxBody">
+                        <!-- Dynamically filled by JS -->
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== TESTIMONIALS SECTION ===== -->
+        <section class="testimonials-section section-padding" id="testimonials" aria-labelledby="testimonialsHeading">
+            <div class="container">
+                <div class="section-header reveal-el">
+                    <span class="section-tag" data-i18n="testimonials_tag">Testimonials</span>
+                    <h2 class="section-title" id="testimonialsHeading" data-i18n="testimonials_title">What Our Clients Say</h2>
+                </div>
+
+                <div class="testimonials-carousel reveal-el" id="testimonialsCarousel">
+                    <!-- Testimonial 1 -->
+                    <div class="testimonial-card active" data-index="0">
+                        <div class="testimonial-quote-icon">
+                            <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M8 20V8h12v12H14c0 4 2 6 6 6v4c-6 0-12-4-12-10z" fill="var(--accent)" opacity="0.3"/>
+                                <path d="M24 20V8h12v12H30c0 4 2 6 6 6v4c-6 0-12-4-12-10z" fill="var(--accent)" opacity="0.2"/>
+                            </svg>
+                        </div>
+                        <p class="testimonial-text" data-i18n="testimonial_1_text">
+                            O.N Site transformed our outdated app into a sleek, high-performance product. Their attention to detail is unmatched. The team was professional, responsive, and truly cared about our success.
+                        </p>
+                        <div class="testimonial-author">
+                            <div class="testimonial-avatar">
+                                <svg viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+                                    <circle cx="24" cy="24" r="24" fill="var(--accent)" opacity="0.12"/>
+                                    <circle cx="24" cy="18" r="8" fill="var(--accent-soft)" opacity="0.5"/>
+                                    <ellipse cx="24" cy="40" rx="12" ry="8" fill="var(--accent)" opacity="0.3"/>
+                                </svg>
+                            </div>
+                            <div class="testimonial-author-info">
+                                <strong data-i18n="testimonial_1_name">Sarah Ahmadi</strong>
+                                <span data-i18n="testimonial_1_role">CEO, Finova Tech</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Testimonial 2 -->
+                    <div class="testimonial-card" data-index="1">
+                        <div class="testimonial-quote-icon">
+                            <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M8 20V8h12v12H14c0 4 2 6 6 6v4c-6 0-12-4-12-10z" fill="var(--accent)" opacity="0.3"/>
+                                <path d="M24 20V8h12v12H30c0 4 2 6 6 6v4c-6 0-12-4-12-10z" fill="var(--accent)" opacity="0.2"/>
+                            </svg>
+                        </div>
+                        <p class="testimonial-text" data-i18n="testimonial_2_text">
+                            Working with O.N Site was a breath of fresh air. They delivered our website ahead of schedule and exceeded every expectation. The design is stunning and the performance is incredible.
+                        </p>
+                        <div class="testimonial-author">
+                            <div class="testimonial-avatar">
+                                <svg viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+                                    <circle cx="24" cy="24" r="24" fill="var(--accent-warm)" opacity="0.12"/>
+                                    <circle cx="24" cy="18" r="8" fill="var(--accent-warm)" opacity="0.45"/>
+                                    <ellipse cx="24" cy="40" rx="12" ry="8" fill="var(--accent-warm)" opacity="0.28"/>
+                                </svg>
+                            </div>
+                            <div class="testimonial-author-info">
+                                <strong data-i18n="testimonial_2_name">David Karimi</strong>
+                                <span data-i18n="testimonial_2_role">Founder, Artisan Collective</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Testimonial 3 -->
+                    <div class="testimonial-card" data-index="2">
+                        <div class="testimonial-quote-icon">
+                            <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M8 20V8h12v12H14c0 4 2 6 6 6v4c-6 0-12-4-12-10z" fill="var(--accent)" opacity="0.3"/>
+                                <path d="M24 20V8h12v12H30c0 4 2 6 6 6v4c-6 0-12-4-12-10z" fill="var(--accent)" opacity="0.2"/>
+                            </svg>
+                        </div>
+                        <p class="testimonial-text" data-i18n="testimonial_3_text">
+                            The UI/UX design work from O.N Site completely revitalized our product. User engagement increased by 200% within the first month. Their strategic approach is simply brilliant.
+                        </p>
+                        <div class="testimonial-author">
+                            <div class="testimonial-avatar">
+                                <svg viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+                                    <circle cx="24" cy="24" r="24" fill="var(--accent-soft)" opacity="0.12"/>
+                                    <circle cx="24" cy="18" r="8" fill="var(--accent-soft)" opacity="0.5"/>
+                                    <ellipse cx="24" cy="40" rx="12" ry="8" fill="var(--accent)" opacity="0.3"/>
+                                </svg>
+                            </div>
+                            <div class="testimonial-author-info">
+                                <strong data-i18n="testimonial_3_name">Maryam Nazari</strong>
+                                <span data-i18n="testimonial_3_role">Product Lead, Lumina Inc.</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Carousel Controls -->
+                <div class="carousel-controls reveal-el">
+                    <button class="carousel-btn carousel-prev" id="carouselPrev" aria-label="Previous testimonial">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M15 18l-6-6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </button>
+                    <div class="carousel-dots" id="carouselDots">
+                        <button class="carousel-dot active" data-index="0" aria-label="Testimonial 1"></button>
+                        <button class="carousel-dot" data-index="1" aria-label="Testimonial 2"></button>
+                        <button class="carousel-dot" data-index="2" aria-label="Testimonial 3"></button>
+                    </div>
+                    <button class="carousel-btn carousel-next" id="carouselNext" aria-label="Next testimonial">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M9 18l6-6-6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== CONTACT SECTION ===== -->
+        <section class="contact-section section-padding" id="contact" aria-labelledby="contactHeading">
+            <div class="container">
+                <div class="section-header reveal-el">
+                    <span class="section-tag" data-i18n="contact_tag">Get In Touch</span>
+                    <h2 class="section-title" id="contactHeading" data-i18n="contact_title">Let's Build Something Great</h2>
+                </div>
+
+                <div class="contact-grid">
+                    <!-- Contact Form -->
+                    <div class="contact-form-wrap reveal-el">
+                        <form class="contact-form" id="contactForm" novalidate>
+                            <div class="form-group floating-label-group">
+                                <input
+                                    type="text"
+                                    id="contactName"
+                                    name="name"
+                                    class="form-input"
+                                    required
+                                    placeholder=" "
+                                    autocomplete="name"
+                                >
+                                <label for="contactName" class="form-label" data-i18n="form_name">Your Name</label>
+                                <span class="form-error" data-i18n="form_error_name">Please enter your name.</span>
+                            </div>
+
+                            <div class="form-group floating-label-group">
+                                <input
+                                    type="email"
+                                    id="contactEmail"
+                                    name="email"
+                                    class="form-input"
+                                    required
+                                    placeholder=" "
+                                    autocomplete="email"
+                                >
+                                <label for="contactEmail" class="form-label" data-i18n="form_email">Your Email</label>
+                                <span class="form-error" data-i18n="form_error_email">Please enter a valid email.</span>
+                            </div>
+
+                            <div class="form-group floating-label-group">
+                                <input
+                                    type="text"
+                                    id="contactSubject"
+                                    name="subject"
+                                    class="form-input"
+                                    required
+                                    placeholder=" "
+                                >
+                                <label for="contactSubject" class="form-label" data-i18n="form_subject">Subject</label>
+                                <span class="form-error" data-i18n="form_error_subject">Please enter a subject.</span>
+                            </div>
+
+                            <div class="form-group floating-label-group">
+                                <textarea
+                                    id="contactMessage"
+                                    name="message"
+                                    class="form-input form-textarea"
+                                    rows="5"
+                                    required
+                                    placeholder=" "
+                                ></textarea>
+                                <label for="contactMessage" class="form-label" data-i18n="form_message">Your Message</label>
+                                <span class="form-error" data-i18n="form_error_message">Please enter your message.</span>
+                            </div>
+
+                            <button type="submit" class="btn btn-primary btn-submit" id="submitBtn">
+                                <span class="btn-text" data-i18n="form_submit">Send Message</span>
+                                <svg class="btn-send-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M22 2L11 13" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <path d="M22 2l-7 20-4-9-9-4 20-7z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </button>
+
+                            <!-- Success Message -->
+                            <div class="form-success" id="formSuccess" aria-hidden="true">
+                                <svg class="success-icon" width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <circle cx="24" cy="24" r="22" stroke="var(--accent)" stroke-width="2" fill="var(--accent)" opacity="0.1"/>
+                                    <path d="M14 24l7 7 13-13" stroke="var(--accent)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                                <span data-i18n="form_success">Message sent successfully! We'll be in touch soon.</span>
+                            </div>
+                        </form>
+                    </div>
+
+                    <!-- Contact Info Sidebar -->
+                    <aside class="contact-info reveal-el">
+                        <div class="contact-info-card">
+                            <div class="contact-info-item">
+                                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <rect x="2" y="4" width="20" height="16" rx="3" stroke="var(--accent)" stroke-width="1.6" fill="none"/>
+                                    <path d="M2 7l10 7 10-7" stroke="var(--accent)" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                                <span>hello@onsite.studio</span>
+                            </div>
+                            <div class="contact-info-item">
+                                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <circle cx="12" cy="10" r="4" stroke="var(--accent)" stroke-width="1.6" fill="none"/>
+                                    <path d="M12 2C7 2 4 6.5 4 10c0 5 8 12 8 12s8-7 8-12c0-3.5-3-8-8-8z" stroke="var(--accent)" stroke-width="1.6" fill="none"/>
+                                </svg>
+                                <span data-i18n="contact_location">Tehran, Iran — Available Worldwide</span>
+                            </div>
+                            <div class="contact-info-item">
+                                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <circle cx="12" cy="12" r="10" stroke="var(--accent)" stroke-width="1.6" fill="none"/>
+                                    <polyline points="12,6 12,12 16,14" stroke="var(--accent)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                                <span data-i18n="contact_hours">Mon — Fri, 9:00 AM — 7:00 PM IRST</span>
+                            </div>
+                        </div>
+
+                        <!-- Social Links -->
+                        <div class="contact-socials">
+                            <a href="#" class="social-link" aria-label="Twitter / X">
+                                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M4 4l6.5 8.5L4 20h1.5l5.7-6.8L15.5 20H20l-7-9 6-7h-1.5l-5.2 6.2L8.5 4H4z" fill="currentColor"/>
+                                </svg>
+                            </a>
+                            <a href="#" class="social-link" aria-label="Instagram">
+                                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <rect x="2" y="2" width="20" height="20" rx="5" stroke="currentColor" stroke-width="1.6" fill="none"/>
+                                    <circle cx="12" cy="12" r="5" stroke="currentColor" stroke-width="1.6" fill="none"/>
+                                    <circle cx="18" cy="6" r="1.5" fill="currentColor"/>
+                                </svg>
+                            </a>
+                            <a href="#" class="social-link" aria-label="LinkedIn">
+                                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <rect x="2" y="2" width="20" height="20" rx="3" stroke="currentColor" stroke-width="1.6" fill="none"/>
+                                    <line x1="8" y1="10" x2="8" y2="17" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+                                    <line x1="12" y1="10" x2="12" y2="17" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+                                    <path d="M8 7.5a1 1 0 1 1 0-2 1 1 0 0 1 0 2z" fill="currentColor"/>
+                                    <path d="M12 14c0-2 2-2.5 3-1.5v4.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+                                </svg>
+                            </a>
+                            <a href="#" class="social-link" aria-label="GitHub">
+                                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M9 19c-4 1-4-3-5-4m9 4v-3.5a3 3 0 0 0-1-2.5c3-.5 6-2 6-6.5a5 5 0 0 0-1.5-3.5 4.5 4.5 0 0 0-.1-3.5s-1.2-.4-3.5 1.3a12 12 0 0 0-6 0C4.7 1.6 3.5 2 3.5 2a4.5 4.5 0 0 0-.1 3.5A5 5 0 0 0 2 9c0 4.5 3 6 6 6.5a3 3 0 0 0-1 2.5V21" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </a>
+                        </div>
+                    </aside>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- ==================== FOOTER ==================== -->
+    <footer class="site-footer" role="contentinfo">
+        <div class="container footer-inner">
+            <div class="footer-brand">
+                <a href="#hero" class="footer-logo-link">
+                    <img src="logo.png" alt="O.N Site" class="footer-logo-img" width="40" height="40" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+                    <div class="logo-fallback footer-logo-fallback" style="display:none;" aria-hidden="true">
+                        <svg width="40" height="40" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <rect x="4" y="4" width="40" height="40" rx="12" fill="var(--accent)" opacity="0.15"/>
+                            <rect x="8" y="8" width="32" height="32" rx="9" stroke="var(--accent)" stroke-width="1.8" fill="none"/>
+                            <circle cx="19" cy="19" r="3.5" fill="var(--accent)" opacity="0.8"/>
+                            <circle cx="29" cy="29" r="2.5" fill="var(--accent-warm)" opacity="0.9"/>
+                            <line x1="21.5" y1="21.5" x2="27" y2="27" stroke="var(--accent)" stroke-width="1.5" stroke-linecap="round"/>
+                        </svg>
+                    </div>
+                </a>
+                <p class="footer-desc" data-i18n="footer_desc">Crafting Digital Excellence — one pixel at a time.</p>
+            </div>
+
+            <div class="footer-nav">
+                <h4 class="footer-nav-title" data-i18n="footer_links">Quick Links</h4>
+                <ul>
+                    <li><a href="#hero" data-i18n="nav_home">Home</a></li>
+                    <li><a href="#about" data-i18n="nav_about">About</a></li>
+                    <li><a href="#services" data-i18n="nav_services">Services</a></li>
+                    <li><a href="#portfolio" data-i18n="nav_portfolio">Portfolio</a></li>
+                    <li><a href="#contact" data-i18n="nav_contact">Contact</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-social">
+                <h4 class="footer-nav-title" data-i18n="footer_follow">Follow Us</h4>
+                <div class="footer-social-icons">
+                    <a href="#" class="social-link" aria-label="Twitter / X">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M4 4l6.5 8.5L4 20h1.5l5.7-6.8L15.5 20H20l-7-9 6-7h-1.5l-5.2 6.2L8.5 4H4z" fill="currentColor"/>
+                        </svg>
+                    </a>
+                    <a href="#" class="social-link" aria-label="Instagram">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <rect x="2" y="2" width="20" height="20" rx="5" stroke="currentColor" stroke-width="1.6" fill="none"/>
+                            <circle cx="12" cy="12" r="5" stroke="currentColor" stroke-width="1.6" fill="none"/>
+                            <circle cx="18" cy="6" r="1.5" fill="currentColor"/>
+                        </svg>
+                    </a>
+                    <a href="#" class="social-link" aria-label="LinkedIn">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <rect x="2" y="2" width="20" height="20" rx="3" stroke="currentColor" stroke-width="1.6" fill="none"/>
+                            <line x1="8" y1="10" x2="8" y2="17" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+                            <line x1="12" y1="10" x2="12" y2="17" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+                            <circle cx="8" cy="7.5" r="1" fill="currentColor"/>
+                            <path d="M12 14c0-2 2-2.5 3-1.5v4.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+                        </svg>
+                    </a>
+                    <a href="#" class="social-link" aria-label="GitHub">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M9 19c-4 1-4-3-5-4m9 4v-3.5a3 3 0 0 0-1-2.5c3-.5 6-2 6-6.5a5 5 0 0 0-1.5-3.5 4.5 4.5 0 0 0-.1-3.5s-1.2-.4-3.5 1.3a12 12 0 0 0-6 0C4.7 1.6 3.5 2 3.5 2a4.5 4.5 0 0 0-.1 3.5A5 5 0 0 0 2 9c0 4.5 3 6 6 6.5a3 3 0 0 0-1 2.5V21" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom container">
+            <p class="footer-copy" data-i18n="footer_copy">&copy; 2024 O.N Site. All rights reserved. Crafted with precision.</p>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button class="back-to-top" id="backToTop" aria-label="Back to top">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 19V5M5 12l7-7 7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+    </button>
+
+    <!-- Main JavaScript -->
+    <script src="script.js"></script>
+</body>
+</html>
